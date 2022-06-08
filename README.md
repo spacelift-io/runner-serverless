@@ -1,2 +1,2 @@
 # runner-serverless
-Spacelift serverless runner image for Terraform
+Spacelift serverless runner image.
