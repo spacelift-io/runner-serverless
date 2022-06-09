@@ -19,7 +19,7 @@ jobs:
 
       - name: Build Serverless image from Dockerfile
         run: |
-          docker build -f ./Dockerfile -t runner-serverless:${{ github.sha }} $path
+          docker build -t runner-serverless:${{ github.sha }} .
 
       - name: Run Trivy vulnerability scanner on Serverless image
         uses: aquasecurity/trivy-action@master
