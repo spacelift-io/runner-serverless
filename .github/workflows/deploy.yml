@@ -28,11 +28,20 @@ jobs:
           pip3 install --upgrade pip
           pip3 install awscli
 
-      - name: Configure AWS credentials
+      - name: Configure Prod AWS credentials
+        if: github.ref == 'refs/heads/main'
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-east-1
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-duration-seconds: 900
+
+      - name: Configure Preprod AWS credentials
+        if: github.ref == 'refs/heads/future'
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ secrets.PREPROD_AWS_ROLE_TO_ASSUME }}
           role-duration-seconds: 900
 
       - name: Log in to Amazon public ECR
