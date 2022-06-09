@@ -20,6 +20,5 @@ jobs:
       - name: Build the Serverless image
         uses: docker/build-push-action@v2
         with:
-          file: ./Dockerfile
           push: false
           tags: serverless-runner:latest
