@@ -54,5 +54,5 @@ jobs:
           file: ./Dockerfile
           push: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/future' }}
           tags: |
-            ${{ secrets.PUBLIC_RUNNER_TERRAFORM_ECR_REPOSITORY_URL }}:${{ github.ref == 'refs/heads/main' && 'latest' || 'future' }}
+            ${{ secrets.PUBLIC_RUNNER_SERVERLESS_ECR_REPOSITORY_URL }}:${{ github.ref == 'refs/heads/main' && 'latest' || 'future' }}
             ghcr.io/spacelift-io/runner-serverless:${{ github.ref == 'refs/heads/main' && 'latest' || 'future' }}
