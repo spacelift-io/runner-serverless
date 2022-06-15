@@ -27,7 +27,7 @@ jobs:
           image-ref: "runner-serverless:${{ github.sha }}"
           format: "template"
           template: "@/contrib/sarif.tpl"
-          output: "trivy-results-serverless.sarif"
+          output: "trivy-results.sarif"
           severity: "CRITICAL,HIGH"
 
       - name: Upload Trivy scan results for Serverless image to GitHub Security tab
