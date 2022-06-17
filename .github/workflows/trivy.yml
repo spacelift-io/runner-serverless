@@ -30,7 +30,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.4.0
         with:
           image-ref: "runner-serverless:${{ github.sha }}"
-          format: sarif
+          # format: sarif
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
 
