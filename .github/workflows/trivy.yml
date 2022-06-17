@@ -30,14 +30,14 @@ jobs:
         uses: aquasecurity/trivy-action@0.4.0
         with:
           image-ref: "runner-serverless:${{ github.sha }}"
-          # format: sarif
+          format: sarif
           template: '@/contrib/sarif.tpl'
-          # output: 'trivy-results.sarif'
+          output: 'trivy-results'
           severity: 'CRITICAL,HIGH'
 
       - name: (Debug) Run ls
         run: |
-          cd .. && ls -a
+          ls -a
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
