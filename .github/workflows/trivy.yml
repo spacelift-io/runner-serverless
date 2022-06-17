@@ -32,12 +32,12 @@ jobs:
           image-ref: "runner-serverless:${{ github.sha }}"
           # format: sarif
           template: '@/contrib/sarif.tpl'
-          output: 'trivy-results.sarif'
+          # output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
 
       - name: (Debug) Run ls
         run: |
-          ls -a
+          cd .. && ls -a
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
