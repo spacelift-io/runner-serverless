@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: build
+name: Trivy
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
     permissions:
       contents: read # for actions/checkout to fetch code
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-    name: Build
+    name: Analyze
     runs-on: "ubuntu-18.04"
     steps:
       - name: Checkout code
