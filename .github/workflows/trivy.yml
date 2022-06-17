@@ -31,8 +31,8 @@ jobs:
         with:
           image-ref: "runner-serverless:${{ github.sha }}"
           format: sarif
-          template: '@/contrib/sarif.tpl'
-          output: 'trivy-results'
+          # template: '@/contrib/sarif.tpl'
+          output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
 
       - name: (Debug) Run ls
