@@ -1,15 +1,9 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: Trivy
 
 on:
   push:
     branches: [ "main", "future" ]
   pull_request:
-    # The branches below must be a subset of the branches above
     branches: [ "main", "future" ]
   schedule:
     - cron: '19 7 * * 0'
@@ -36,7 +30,7 @@ jobs:
         uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
         with:
           image-ref: "runner-serverless:${{ github.sha }}"
-          format: 'template'
+          format: 'file'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
