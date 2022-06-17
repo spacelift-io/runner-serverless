@@ -27,10 +27,10 @@ jobs:
           docker build -t runner-serverless:${{ github.sha }} .
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
+        uses: aquasecurity/trivy-action@0.4.0
         with:
           image-ref: "runner-serverless:${{ github.sha }}"
-          format: sarif
+          # format: sarif
           template: '@/contrib/sarif.tpl'
           # output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
