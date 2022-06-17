@@ -7,12 +7,12 @@ name: build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "future" ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "main" ]
+    branches: [ "main", "future" ]
   schedule:
-    - cron: '30 10 * * 1'
+    - cron: '19 7 * * 0'
 
 permissions:
   contents: read
