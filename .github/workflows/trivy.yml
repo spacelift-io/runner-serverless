@@ -24,17 +24,18 @@ jobs:
 
       - name: Build an image from Dockerfile
         run: |
-          docker build -t spacelift:${{ github.sha }} .
+          docker build -t runner-serverless:${{ github.sha }} .
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: "spacelift:${{ github.sha }}"
+          image-ref: "runner-serverless:${{ github.sha }}"
           format: "template"
           template: "@/contrib/sarif.tpl"
           output: "trivy-results.sarif"
           severity: "CRITICAL,HIGH"
 
       - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v1
+        uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: "trivy-results.sarif"
+          category: "Trivy"
