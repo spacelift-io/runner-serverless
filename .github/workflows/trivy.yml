@@ -26,7 +26,7 @@ jobs:
         run: |
           docker build -t runner-serverless:${{ github.sha }} .
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.27.0
+        uses: aquasecurity/trivy-action@0.34.2
         with:
           image-ref: "runner-serverless:${{ github.sha }}"
           format: "template"
